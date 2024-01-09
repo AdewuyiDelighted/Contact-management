@@ -71,8 +71,9 @@ public class ContactManagementServiceImpl implements ContactManagementService {
     @Override
     public List<Contact> viewAllContactBelongToUser(FindAllContactRequest findAllContactRequest) {
         appUnlocked(findAllContactRequest.getEmail());
-        ContactManagement contactManagement = userExist(findAllContactRequest.getSurname(), findAllContactRequest.getFirstName());
-        if (contactManagement != null) return contactService.findAllContactBelongingToUser(contactManagement.getId());
+        Optional<ContactManagement> contactManagement = findByEmail(findAllContactRequest.getEmail());
+        if (contactManagement.isPresent())
+            return contactService.findAllContactBelongingToUser(contactManagement.get().getId());
         return null;
     }
 
@@ -87,19 +88,57 @@ public class ContactManagementServiceImpl implements ContactManagementService {
     public List<Contact> viewAllContactBelongInCategory(FindAllContactsInACategory findAllContactsInACategory) {
         Optional<ContactManagement> contactManagement = findByEmail(findAllContactsInACategory.getEmail());
         if (contactManagement.isPresent())
-            return contactService.findAllContactACategory(findAllContactsInACategory, contactManagement.get().getId());
+            return contactService.findAllContactACategory(findAllContactsInACategory.getCategoryName(), findAllContactsInACategory.getEmail(), contactManagement.get().getId());
         return null;
     }
 
     @Override
     public Contact editContactInfo(EditContactInfoRequest editContactInfoRequest) {
+        Optional<ContactManagement> contactManagement = findByEmail(editContactInfoRequest.getUserEmail());
+        if (contactManagement.isPresent())
+            return contactService.editContactInfo(editContactInfoRequest, contactManagement.get().getId());
+        System.out.println(contactManagement.get().getId());
         return null;
     }
 
     @Override
-    public ContactManagement findByUsername(String username) {
-        return null;
+    public Contact blockContact(BlockContactRequest blockContactRequest) {
+        Optional<ContactManagement> contactManagement = findByEmail(blockContactRequest.getEmail());
+        return contactService.blockContact(blockContactRequest, contactManagement.get().getId());
     }
+
+    @Override
+    public Contact unblockContact(UnblockContactRequest unblockContactRequest) {
+        Optional<ContactManagement> contactManagement = findByEmail(unblockContactRequest.getEmail());
+        return contactService.unblockContact(unblockContactRequest, contactManagement.get().getId());
+    }
+
+
+    @Override
+    public void deleteAContact(DeleteAContactRequest deleteAContactRequest) {
+        Optional<ContactManagement> contactManagement = findByEmail(deleteAContactRequest.getUserEmail());
+        if (contactManagement.isPresent())
+            contactService.deleteAContact(deleteAContactRequest, contactManagement.get().getId());
+
+
+    }
+
+    @Override
+    public void deleteAllContactBelongInCategory(DeleteAllContactsInACategory deleteAllContactsInACategory) {
+        Optional<ContactManagement> contactManagement = findByEmail(deleteAllContactsInACategory.getEmail());
+        if (contactManagement.isPresent())
+            contactService.deleteAllContactInCategory(deleteAllContactsInACategory, contactManagement.get().getId());
+
+
+    }
+
+    @Override
+    public void deleteAllContact(DeleteAllContactRequest deleteAllContactRequest) {
+        Optional<ContactManagement> contactManagement = findByEmail(deleteAllContactRequest.getEmail());
+        contactService.deleteAllContact(contactManagement.get().getId());
+
+    }
+
 
     @Override
     public Optional<ContactManagement> findByEmail(String email) {

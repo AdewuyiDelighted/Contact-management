@@ -26,6 +26,7 @@ public class Map {
         contact.setFirstname(addContactRequest.getFirstName());
         contact.setSurname(addContactRequest.getSurname());
         contact.setPhoneNumber(addContactRequest.getPhoneNumber());
+        contact.setAddress(addContactRequest.getAddress());
         contact.setEmail(addContactRequest.getEmail());
         contact.setUserEmail(addContactRequest.getUserEmail());
         contact.setCategoryName(addContactRequest.getCategoryName());

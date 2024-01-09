@@ -1,11 +1,13 @@
 package org.example.data.model;
 
 
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
+import lombok.NonNull;
 
 @Data
 @Entity
@@ -21,7 +23,7 @@ public class Contact {
     private String email;
     private String phoneNumber;
     private String userEmail;
-    private boolean isBlocked;
+    private boolean isBlocked = false;
 
 
 

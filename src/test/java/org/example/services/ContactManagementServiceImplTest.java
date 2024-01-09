@@ -13,8 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ContactManagementServiceImplTest {
@@ -210,8 +209,6 @@ class ContactManagementServiceImplTest {
         addContactRequestBola.setPhoneNumber("08065432656");
         contactManagementService.addContact(addContactRequestBola);
         FindAllContactRequest findAllContactRequest = new FindAllContactRequest();
-        findAllContactRequest.setSurname("bola");
-        findAllContactRequest.setFirstName("feyi");
         findAllContactRequest.setEmail("Feyibola@gmail.com");
         assertEquals(1, contactManagementRepository.count());
         assertEquals(2, contactManagementService.viewAllContactBelongToUser(findAllContactRequest).size());
@@ -303,6 +300,138 @@ class ContactManagementServiceImplTest {
         loginRequest.setPassword("Feyi@123");
         contactManagementService.login(loginRequest);
         AddContactRequest addContactRequest = new AddContactRequest();
+        addContactRequest.setFirstName("handsome");
+        addContactRequest.setSurname("kenny");
+        addContactRequest.setAddress("Nestle");
+        addContactRequest.setCategoryName("School");
+        addContactRequest.setUserEmail("Feyibola@gmail.com");
+        addContactRequest.setEmail("Wumibukky@gmail.com");
+        addContactRequest.setPhoneNumber("07032167894");
+        contactManagementService.addContact(addContactRequest);
+        assertEquals(1, contactRepository.count());
+        var editContactInfoRequest = getEditContactInfoRequest();
+        contactManagementService.editContactInfo(editContactInfoRequest);
+        assertEquals("jumoh", contactManagementService.editContactInfo(editContactInfoRequest).getSurname());
+        System.out.println(contactManagementService.editContactInfo(editContactInfoRequest).getSurname());
+        assertEquals("lola", contactManagementService.editContactInfo(editContactInfoRequest).getFirstname());
+        assertEquals("ota", contactManagementService.editContactInfo(editContactInfoRequest).getAddress());
+        assertEquals("Wumibukkys@gmail.com", contactManagementService.editContactInfo(editContactInfoRequest).getEmail());
+        assertEquals("Feyibola@gmail.com", contactManagementService.editContactInfo(editContactInfoRequest).getUserEmail());
+        assertEquals("07032167894", contactManagementService.editContactInfo(editContactInfoRequest).getPhoneNumber());
+        assertEquals("Work", contactManagementService.editContactInfo(editContactInfoRequest).getCategoryName());
+        assertEquals(1, contactRepository.count());
+
+
+    }
+
+    private static EditContactInfoRequest getEditContactInfoRequest() {
+        EditContactInfoRequest editContactInfoRequest = new EditContactInfoRequest();
+        editContactInfoRequest.setFormerSurname("kenny");
+        editContactInfoRequest.setFormerFirstName("handsome");
+        editContactInfoRequest.setNewFirstName("lola");
+        editContactInfoRequest.setNewSurname("jumoh");
+        editContactInfoRequest.setCategoryName("School");
+        editContactInfoRequest.setUserEmail("Feyibola@gmail.com");
+        editContactInfoRequest.setEmail("Wumibukky@gmail.com");
+        editContactInfoRequest.setPhoneNumber("07032167894");
+        return editContactInfoRequest;
+    }
+
+    @Test
+
+    public void testThatUserCanAddContactAfterThatRegisterAndLoginAndDeleteAContact() {
+        RegisterRequest registerRequest = new RegisterRequest();
+        registerRequest.setFirstname("Olamide");
+        registerRequest.setSurname("Grace");
+        registerRequest.setPhoneNumber("09065626032");
+        registerRequest.setEmail("Olamidegrace@gmail.com");
+        registerRequest.setPassword("Olamide@2244");
+        contactManagementService.register(registerRequest);
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setEmail("Olamidegrace@gmail.com");
+        loginRequest.setPassword("Olamide@2244");
+        contactManagementService.login(loginRequest);
+        AddContactRequest addContactRequest = new AddContactRequest();
+        addContactRequest.setFirstName("Hope");
+        addContactRequest.setSurname("Joke");
+        addContactRequest.setAddress("Lagos");
+        addContactRequest.setCategoryName("School");
+        addContactRequest.setUserEmail("Olamidegrace@gmail.com");
+        addContactRequest.setEmail("Hopejoke67@gmail.com");
+        addContactRequest.setPhoneNumber("08027893102");
+        contactManagementService.addContact(addContactRequest);
+        AddContactRequest addContactRequestOpe = new AddContactRequest();
+        addContactRequestOpe.setFirstName("Bola");
+        addContactRequestOpe.setSurname("Soon");
+        addContactRequestOpe.setAddress("Kolacek ooo");
+        addContactRequestOpe.setCategoryName("church");
+        addContactRequestOpe.setUserEmail("Olamidegrace@gmail.com");
+        addContactRequestOpe.setEmail("ready45@gmail.com");
+        addContactRequestOpe.setPhoneNumber("08065432656");
+        contactManagementService.addContact(addContactRequestOpe);
+        DeleteAContactRequest deleteAContactRequest = new DeleteAContactRequest();
+        deleteAContactRequest.setSurname("Soon");
+        deleteAContactRequest.setFirstName("Bola");
+        deleteAContactRequest.setUserEmail("Olamidegrace@gmail.com");
+        contactManagementService.deleteAContact(deleteAContactRequest);
+        assertEquals(1, contactManagementRepository.count());
+        assertEquals(1, contactRepository.count());
+
+    }
+
+    @Test
+    public void testThatUserCanAddContactAfterThatRegisterAndLoginAndDeletellContactsInACategory() {
+        RegisterRequest registerRequest = new RegisterRequest();
+        registerRequest.setFirstname("Olamide");
+        registerRequest.setSurname("Grace");
+        registerRequest.setPhoneNumber("09065626032");
+        registerRequest.setEmail("Olamidegrace@gmail.com");
+        registerRequest.setPassword("Olamide@2244");
+        contactManagementService.register(registerRequest);
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setEmail("Olamidegrace@gmail.com");
+        loginRequest.setPassword("Olamide@2244");
+        contactManagementService.login(loginRequest);
+        AddContactRequest addContactRequest = new AddContactRequest();
+        addContactRequest.setFirstName("Hope");
+        addContactRequest.setSurname("Joke");
+        addContactRequest.setAddress("Lagos");
+        addContactRequest.setCategoryName("School");
+        addContactRequest.setUserEmail("Olamidegrace@gmail.com");
+        addContactRequest.setEmail("Hopejoke67@gmail.com");
+        addContactRequest.setPhoneNumber("08027893102");
+        contactManagementService.addContact(addContactRequest);
+        AddContactRequest addContactRequestOpe = new AddContactRequest();
+        addContactRequestOpe.setFirstName("Bola");
+        addContactRequestOpe.setSurname("Soon");
+        addContactRequestOpe.setAddress("Kolacek ooo");
+        addContactRequestOpe.setCategoryName("School");
+        addContactRequestOpe.setUserEmail("Olamidegrace@gmail.com");
+        addContactRequestOpe.setEmail("ready45@gmail.com");
+        addContactRequestOpe.setPhoneNumber("08065432656");
+        contactManagementService.addContact(addContactRequestOpe);
+        DeleteAllContactsInACategory deleteAllContactsInACategory = new DeleteAllContactsInACategory();
+        deleteAllContactsInACategory.setEmail("Olamidegrace@gmail.com");
+        deleteAllContactsInACategory.setCategoryName("School");
+        contactManagementService.deleteAllContactBelongInCategory(deleteAllContactsInACategory);
+        assertEquals(1, contactManagementRepository.count());
+        assertEquals(0, contactRepository.count());
+    }
+
+    @Test
+    public void testThatUserCanAddContactAfterThatRegisterAndLoginAndDeleteAllContacts() {
+        RegisterRequest registerRequest = new RegisterRequest();
+        registerRequest.setFirstname("feyi");
+        registerRequest.setSurname("bola");
+        registerRequest.setPhoneNumber("09034568712");
+        registerRequest.setEmail("Feyibola@gmail.com");
+        registerRequest.setPassword("Feyi@123");
+        contactManagementService.register(registerRequest);
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setEmail("Feyibola@gmail.com");
+        loginRequest.setPassword("Feyi@123");
+        contactManagementService.login(loginRequest);
+        AddContactRequest addContactRequest = new AddContactRequest();
         addContactRequest.setFirstName("wumi");
         addContactRequest.setSurname("bukky");
         addContactRequest.setAddress("Sango");
@@ -311,25 +440,87 @@ class ContactManagementServiceImplTest {
         addContactRequest.setEmail("Wumibukky@gmail.com");
         addContactRequest.setPhoneNumber("07032167894");
         contactManagementService.addContact(addContactRequest);
-        EditContactInfoRequest editContactInfoRequest = new EditContactInfoRequest();
-        editContactInfoRequest.setSurname("wumis");
-        editContactInfoRequest.setFirstName("bukkys");
-        editContactInfoRequest.setAddress("ota");
-        editContactInfoRequest.setEmail("Wumibukkys@gmail.com");
-        editContactInfoRequest.setUserEmail("Feyibola@gmail.com");
-        editContactInfoRequest.setPhoneNumber("07032167894");
-        editContactInfoRequest.setCategoryName("Work");
-       assertEquals("wumis",contactManagementService.editContactInfo(editContactInfoRequest).getSurname());
-       assertEquals("bukkys",contactManagementService.editContactInfo(editContactInfoRequest).getFirstname());
-        assertEquals("ota",contactManagementService.editContactInfo(editContactInfoRequest).getAddress());
-        assertEquals("Wumibukkys@gmail.com",contactManagementService.editContactInfo(editContactInfoRequest).getEmail());
-        assertEquals("Feyibola@gmail.com",contactManagementService.editContactInfo(editContactInfoRequest).getUserEmail());
-        assertEquals("07032167894",contactManagementService.editContactInfo(editContactInfoRequest).getPhoneNumber());
-        assertEquals("Work",contactManagementService.editContactInfo(editContactInfoRequest).getCategoryName());
+        AddContactRequest addContactRequestBola = new AddContactRequest();
+        addContactRequestBola.setFirstName("Bola");
+        addContactRequestBola.setSurname("Soon");
+        addContactRequestBola.setAddress("Kolacek ooo");
+        addContactRequestBola.setCategoryName("Work");
+        addContactRequestBola.setUserEmail("Feyibola@gmail.com");
+        addContactRequestBola.setEmail("ready45@gmail.com");
+        addContactRequestBola.setPhoneNumber("08065432656");
+        contactManagementService.addContact(addContactRequestBola);
+        DeleteAllContactRequest deleteAllContactRequest = new DeleteAllContactRequest();
+        deleteAllContactRequest.setEmail("Feyibola@gmail.com");
+        contactManagementService.deleteAllContact(deleteAllContactRequest);
+        assertEquals(1, contactManagementRepository.count());
+        assertEquals(0, contactRepository.count());
 
+    }
 
-
-
+    @Test
+    public void testThatUserCanAddContactAfterThatRegisterAndLoginAndBlockAContact() {
+        RegisterRequest registerRequest = new RegisterRequest();
+        registerRequest.setFirstname("Olamide");
+        registerRequest.setSurname("Grace");
+        registerRequest.setPhoneNumber("09065626032");
+        registerRequest.setEmail("Olamidegrace@gmail.com");
+        registerRequest.setPassword("Olamide@2244");
+        contactManagementService.register(registerRequest);
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setEmail("Olamidegrace@gmail.com");
+        loginRequest.setPassword("Olamide@2244");
+        contactManagementService.login(loginRequest);
+        AddContactRequest addContactRequest = new AddContactRequest();
+        addContactRequest.setFirstName("Hope");
+        addContactRequest.setSurname("Joke");
+        addContactRequest.setAddress("Lagos");
+        addContactRequest.setCategoryName("School");
+        addContactRequest.setUserEmail("Olamidegrace@gmail.com");
+        addContactRequest.setEmail("Hopejoke67@gmail.com");
+        addContactRequest.setPhoneNumber("08027893102");
+        contactManagementService.addContact(addContactRequest);
+        BlockContactRequest blockContactRequest = new BlockContactRequest();
+        blockContactRequest.setFirstname("Hope");
+        blockContactRequest.setSurname("Joke");
+        blockContactRequest.setEmail("Olamidegrace@gmail.com");
+        assertTrue(contactManagementService.blockContact(blockContactRequest).isBlocked());
+        assertEquals(1, contactManagementRepository.count());
+        assertEquals(1, contactRepository.count());
+    }
+    @Test
+    public void testThatUserCanAddContactAfterThatRegisterAndLoginAndBlockAContactAndUnblockTheContact() {
+        RegisterRequest registerRequest = new RegisterRequest();
+        registerRequest.setFirstname("Olamide");
+        registerRequest.setSurname("Grace");
+        registerRequest.setPhoneNumber("09065626032");
+        registerRequest.setEmail("Olamidegrace@gmail.com");
+        registerRequest.setPassword("Olamide@2244");
+        contactManagementService.register(registerRequest);
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setEmail("Olamidegrace@gmail.com");
+        loginRequest.setPassword("Olamide@2244");
+        contactManagementService.login(loginRequest);
+        AddContactRequest addContactRequest = new AddContactRequest();
+        addContactRequest.setFirstName("Hope");
+        addContactRequest.setSurname("Joke");
+        addContactRequest.setAddress("Lagos");
+        addContactRequest.setCategoryName("School");
+        addContactRequest.setUserEmail("Olamidegrace@gmail.com");
+        addContactRequest.setEmail("Hopejoke67@gmail.com");
+        addContactRequest.setPhoneNumber("08027893102");
+        contactManagementService.addContact(addContactRequest);
+        BlockContactRequest blockContactRequest = new BlockContactRequest();
+        blockContactRequest.setFirstname("Hope");
+        blockContactRequest.setSurname("Joke");
+        blockContactRequest.setEmail("Olamidegrace@gmail.com");
+        assertTrue(contactManagementService.blockContact(blockContactRequest).isBlocked());
+        UnblockContactRequest unblockContactRequest = new UnblockContactRequest();
+        unblockContactRequest.setFirstname("Hope");
+        unblockContactRequest.setSurname("Joke");
+        unblockContactRequest.setEmail("Olamidegrace@gmail.com");
+        assertFalse(contactManagementService.unblockContact(unblockContactRequest).isBlocked());
+        assertEquals(1, contactManagementRepository.count());
+        assertEquals(1, contactRepository.count());
 
     }
 }

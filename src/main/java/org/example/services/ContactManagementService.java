@@ -13,8 +13,6 @@ public interface ContactManagementService {
 
     void login(LoginRequest loginRequest);
 
-    ContactManagement findByUsername(String username);
-
     Optional<ContactManagement> findByEmail(String email);
 
     void addContact(AddContactRequest addContactRequest);
@@ -28,4 +26,13 @@ public interface ContactManagementService {
     List<Contact> viewAllContactBelongInCategory(FindAllContactsInACategory findAllContactsInACategory);
 
     Contact editContactInfo(EditContactInfoRequest editContactInfoRequest);
+
+    void deleteAContact(DeleteAContactRequest deleteAContactRequest);
+
+    void deleteAllContactBelongInCategory(DeleteAllContactsInACategory deleteAllContactsInACategory);
+
+    void deleteAllContact(DeleteAllContactRequest deleteAllContactRequest);
+
+    Contact blockContact(BlockContactRequest blockContactRequest);
+    Contact unblockContact(UnblockContactRequest unblockContactRequest);
 }

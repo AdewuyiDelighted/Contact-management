@@ -3,7 +3,6 @@ package org.example.dtos.request;
 import lombok.Data;
 
 @Data
-public class FindAllContactRequest {
+public class DeleteAllContactRequest {
     private String email;
-
 }

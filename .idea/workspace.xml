@@ -5,40 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a829696-3e14-4258-8c3a-8e94952f9225" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/BlockContactRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/DeleteAContactRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/DeleteAllContactRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/DeleteAllContactsInACategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/UnblockContactRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data/model/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data/model/Contact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data/model/ContactManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data/model/ContactManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data/repositories/ContactManagementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data/repositories/ContactManagementRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data/repositories/ContactRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data/repositories/ContactRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/AddContactRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/AddContactRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/EditContactInfoRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/EditContactInfoRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/EditContactRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/EditContactRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/FindAContactRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/FindAContactRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/FindAllContactRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/FindAllContactRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/FindAllContactsInACategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/FindAllContactsInACategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/RegisterRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/exceptions/AppUnlockedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/exceptions/AppUnlockedException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/exceptions/ContactDoesntExistException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/exceptions/ContactDoesntExistException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/exceptions/ContactManagementExceptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/exceptions/ContactManagementExceptions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/exceptions/ContactNameExistException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/exceptions/ContactNameExistException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/exceptions/IncorrectEmailFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/exceptions/IncorrectEmailFormat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/exceptions/IncorrectPhoneNumberFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/exceptions/IncorrectPhoneNumberFormat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/exceptions/InvalidDetailsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/exceptions/InvalidDetailsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/exceptions/PasswordTooWeakException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/exceptions/PasswordTooWeakException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/exceptions/UserExistException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/exceptions/UserExistException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ContactManagementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ContactManagementService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ContactManagementServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ContactManagementServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ContactService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ContactService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ContactServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ContactServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/Verification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/Verification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/services/ContactManagementServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/services/ContactManagementServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/services/ContactServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/services/ContactServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,28 +48,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "spring.configuration.checksum": "1e0d8800fcd4b94317fa21cb1f22769a",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;1e0d8800fcd4b94317fa21cb1f22769a&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -96,7 +78,7 @@
       <recent name="org.example.services" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ContactManagementServiceImplTest.testThatUserCanAddContactAfterUserRegisterAndLoginAndEditContact">
+  <component name="RunManager" selected="JUnit.ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndBlockAContactAndUnblockTheContact">
     <configuration name="ContactManagementServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="contact-management" />
       <extension name="coverage">
@@ -112,7 +94,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndEdit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndBlockAContact" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="contact-management" />
       <extension name="coverage">
         <pattern>
@@ -122,13 +104,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.services" />
       <option name="MAIN_CLASS_NAME" value="org.example.services.ContactManagementServiceImplTest" />
-      <option name="METHOD_NAME" value="testThatUserCanAddContactAfterThatRegisterAndLoginAndEdit" />
+      <option name="METHOD_NAME" value="testThatUserCanAddContactAfterThatRegisterAndLoginAndBlockAContact" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndViewAContacts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndBlockAContactAndUnblockTheContact" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="contact-management" />
       <extension name="coverage">
         <pattern>
@@ -138,13 +120,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.services" />
       <option name="MAIN_CLASS_NAME" value="org.example.services.ContactManagementServiceImplTest" />
-      <option name="METHOD_NAME" value="testThatUserCanAddContactAfterThatRegisterAndLoginAndViewAContacts" />
+      <option name="METHOD_NAME" value="testThatUserCanAddContactAfterThatRegisterAndLoginAndBlockAContactAndUnblockTheContact" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndViewAllContactsInACategory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndDeleteAllContacts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="contact-management" />
       <extension name="coverage">
         <pattern>
@@ -154,13 +136,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.services" />
       <option name="MAIN_CLASS_NAME" value="org.example.services.ContactManagementServiceImplTest" />
-      <option name="METHOD_NAME" value="testThatUserCanAddContactAfterThatRegisterAndLoginAndViewAllContactsInACategory" />
+      <option name="METHOD_NAME" value="testThatUserCanAddContactAfterThatRegisterAndLoginAndDeleteAllContacts" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContactManagementServiceImplTest.testThatUserCanAddContactAfterUserRegisterAndLoginAndEditContact" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndDeletellContactsInACategory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="contact-management" />
       <extension name="coverage">
         <pattern>
@@ -170,7 +152,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.services" />
       <option name="MAIN_CLASS_NAME" value="org.example.services.ContactManagementServiceImplTest" />
-      <option name="METHOD_NAME" value="testThatUserCanAddContactAfterUserRegisterAndLoginAndEditContact" />
+      <option name="METHOD_NAME" value="testThatUserCanAddContactAfterThatRegisterAndLoginAndDeletellContactsInACategory" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -178,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanAddContactAfterUserRegisterAndLoginAndEditContact" />
+        <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndBlockAContactAndUnblockTheContact" />
+        <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndBlockAContact" />
         <item itemvalue="JUnit.ContactManagementServiceImplTest" />
-        <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndViewAllContactsInACategory" />
-        <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndEdit" />
-        <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndViewAContacts" />
+        <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndDeleteAllContacts" />
+        <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndDeletellContactsInACategory" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +184,8 @@
       <workItem from="1704558393110" duration="31000" />
       <workItem from="1704558480770" duration="36000" />
       <workItem from="1704558569815" duration="52172000" />
-      <workItem from="1704712413199" duration="13537000" />
+      <workItem from="1704712413199" duration="18412000" />
+      <workItem from="1704816571454" duration="16656000" />
     </task>
     <servers />
   </component>

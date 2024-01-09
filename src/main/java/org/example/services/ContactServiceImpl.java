@@ -58,7 +58,7 @@ public class ContactServiceImpl implements ContactService {
             if (contact.getFirstname().equals(firstname) && contact.getSurname().equals(surname))
                 return contact;
         }
-        return null;
+        throw new ContactDoesntExistException("Contact doesnt not exist");
     }
 
 
@@ -73,12 +73,59 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public List<Contact> findAllContactACategory(FindAllContactsInACategory findAllContactsInACategory, Long contactManagementId) {
+    public List<Contact> findAllContactACategory(String categoryName, String email, Long contactManagementId) {
         List<Contact> contacts = new ArrayList<>();
         for (Contact contact : findAllContactBelongingToUser(contactManagementId)) {
-            if (contact.getCategoryName().equals(findAllContactsInACategory.getCategoryName())) contacts.add(contact);
+            if (contact.getCategoryName().equals(categoryName)) contacts.add(contact);
         }
         return contacts;
+    }
+
+    @Override
+    public Contact editContactInfo(EditContactInfoRequest editContactInfoRequest, Long contactManagementId) {
+        Contact contact = findAContact(editContactInfoRequest.getFormerSurname(), editContactInfoRequest.getFormerFirstName(), contactManagementId);
+        if (editContactInfoRequest.getNewSurname() != null) contact.setSurname(editContactInfoRequest.getNewSurname());
+        if (editContactInfoRequest.getNewFirstName() != null)
+            contact.setFirstname(editContactInfoRequest.getFormerFirstName());
+        if (editContactInfoRequest.getAddress() != null) contact.setAddress(editContactInfoRequest.getAddress());
+        if (editContactInfoRequest.getEmail() != null) contact.setEmail(editContactInfoRequest.getEmail());
+        contactRepository.save(contact);
+        return contact;
+    }
+
+    @Override
+    public void deleteAContact(DeleteAContactRequest deleteAContactRequest, Long contactManagementId) {
+        Contact contact = findAContact(deleteAContactRequest.getSurname(), deleteAContactRequest.getFirstName(), contactManagementId);
+        contactRepository.deleteById(contact.getContactId());
+    }
+
+    @Override
+    public void deleteAllContactInCategory(DeleteAllContactsInACategory deleteAllContactsInACategory, Long contactManagementId) {
+        List<Contact> contacts = findAllContactACategory(deleteAllContactsInACategory.getCategoryName(), deleteAllContactsInACategory.getEmail(), contactManagementId);
+        contactRepository.deleteAll(contacts);
+
+    }
+
+    @Override
+    public void deleteAllContact(Long contactManagementId) {
+        List<Contact> contacts = findAllContactBelongingToUser(contactManagementId);
+        contactRepository.deleteAll(contacts);
+
+    }
+
+    @Override
+    public Contact blockContact(BlockContactRequest blockContactRequest, Long contactManagementId) {
+        Contact contact = findAContact(blockContactRequest.getSurname(), blockContactRequest.getFirstname(), contactManagementId);
+        contact.setBlocked(true);
+        return contact;
+    }
+
+    @Override
+    public Contact unblockContact(UnblockContactRequest unblockContactRequest, Long contactManagementId) {
+        Contact contact = findAContact(unblockContactRequest.getSurname(), unblockContactRequest.getFirstname(), contactManagementId);
+        contact.setBlocked(false);
+        return contact;
+
     }
 
 
@@ -102,7 +149,8 @@ public class ContactServiceImpl implements ContactService {
         for (Contact contact : findAllContactBelongingToUser(contactManagementId)) {
             if (contact.getPhoneNumber().equals(oldContact)) return true;
         }
-        return false;
+        throw new ContactDoesntExistException("Contact doesnt not exist");
     }
+
 
 }

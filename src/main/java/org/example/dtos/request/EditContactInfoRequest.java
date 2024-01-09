@@ -4,8 +4,10 @@ import lombok.Data;
 
 @Data
 public class EditContactInfoRequest {
-    private String firstName;
-    private String surname;
+    private String formerFirstName;
+    private String formerSurname;
+    private String newFirstName;
+    private String newSurname;
     private String phoneNumber;
     private String email;
     private String userEmail;

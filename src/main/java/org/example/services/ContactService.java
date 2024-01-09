@@ -14,7 +14,17 @@ public interface ContactService {
 
     List<Contact> findAllContactBelongingToUser(Long contactListId);
 
-    List<Contact> findAllContactACategory(FindAllContactsInACategory findAllContactsInACategory, Long contactManagementId);
+    List<Contact> findAllContactACategory(String categoryName, String email, Long contactManagementId);
+
+    Contact editContactInfo(EditContactInfoRequest editContactInfoRequest, Long contactManagementId);
+
+    void deleteAContact(DeleteAContactRequest deleteAContactRequest, Long contactManagementId);
+
+    void deleteAllContactInCategory(DeleteAllContactsInACategory deleteAllContactsInACategory, Long contactManagementId);
+
+    void deleteAllContact(Long contactManagementId);
+    Contact blockContact(BlockContactRequest blockContactRequest,Long contactManagementId);
+    Contact unblockContact(UnblockContactRequest unblockContactRequest,Long contactManagementId);
 
 
 }
