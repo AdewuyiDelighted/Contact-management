@@ -34,5 +34,10 @@ public interface ContactManagementService {
     void deleteAllContact(DeleteAllContactRequest deleteAllContactRequest);
 
     Contact blockContact(BlockContactRequest blockContactRequest);
+
     Contact unblockContact(UnblockContactRequest unblockContactRequest);
+
+    ContactManagement editUserInfo(EditUserInfoRequest editUserInfoRequest);
+
+    void deleteAccount(String email);
 }

@@ -55,7 +55,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public Contact findAContact(String surname, String firstname, Long contactManagementId) {
         for (Contact contact : findAllContactBelongingToUser(contactManagementId)) {
-            if (contact.getFirstname().equals(firstname) && contact.getSurname().equals(surname))
+            if (contact.getSurname().equals(surname) && contact.getFirstname().equals(firstname))
                 return contact;
         }
         throw new ContactDoesntExistException("Contact doesnt not exist");
@@ -83,15 +83,23 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public Contact editContactInfo(EditContactInfoRequest editContactInfoRequest, Long contactManagementId) {
-        Contact contact = findAContact(editContactInfoRequest.getFormerSurname(), editContactInfoRequest.getFormerFirstName(), contactManagementId);
-        if (editContactInfoRequest.getNewSurname() != null) contact.setSurname(editContactInfoRequest.getNewSurname());
-        if (editContactInfoRequest.getNewFirstName() != null)
-            contact.setFirstname(editContactInfoRequest.getFormerFirstName());
-        if (editContactInfoRequest.getAddress() != null) contact.setAddress(editContactInfoRequest.getAddress());
-        if (editContactInfoRequest.getEmail() != null) contact.setEmail(editContactInfoRequest.getEmail());
-        contactRepository.save(contact);
-        return contact;
+        for (Contact contact : findAllContactBelongingToUser(contactManagementId)) {
+            if (contact.getEmail().equals(editContactInfoRequest.getEmail())) {
+                if (editContactInfoRequest.getNewSurname() != null)
+                    contact.setSurname(editContactInfoRequest.getNewSurname());
+                if (editContactInfoRequest.getNewFirstName() != null)
+                    contact.setFirstname(editContactInfoRequest.getFormerFirstName());
+                if (editContactInfoRequest.getAddress() != null)
+                    contact.setAddress(editContactInfoRequest.getAddress());
+                if (editContactInfoRequest.getEmail() != null) contact.setEmail(editContactInfoRequest.getEmail());
+
+                contactRepository.save(contact);
+                return contact;
+            }
+        }
+        return null;
     }
+
 
     @Override
     public void deleteAContact(DeleteAContactRequest deleteAContactRequest, Long contactManagementId) {

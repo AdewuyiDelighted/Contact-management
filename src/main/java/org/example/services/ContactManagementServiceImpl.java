@@ -5,19 +5,19 @@ import org.example.data.model.ContactManagement;
 import org.example.data.repositories.ContactManagementRepository;
 import org.example.dtos.request.*;
 import org.example.exceptions.AppUnlockedException;
+import org.example.exceptions.ContactManagementDoesntExitExcepetion;
 import org.example.exceptions.InvalidDetailsException;
 import org.example.exceptions.UserExistException;
-import org.example.utils.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
+
 import java.util.List;
 import java.util.Optional;
 
 import static org.example.utils.Map.mapper;
-import static org.example.utils.Verification.passwordChecker;
+import static org.example.utils.Verification.*;
 
 @Service
 public class ContactManagementServiceImpl implements ContactManagementService {
@@ -52,7 +52,7 @@ public class ContactManagementServiceImpl implements ContactManagementService {
 
     @Override
     public void addContact(AddContactRequest addContactRequest) {
-        appUnlocked(addContactRequest.getUserEmail());
+        appUnlocked(addContactRequest.getUserEmail());validatePhoneNumber(addContactRequest.getPhoneNumber());validateEmail(addContactRequest.getEmail());
         Optional<ContactManagement> contactManagement = contactManagementRepository.findByEmail(addContactRequest.getUserEmail());
         if (contactManagement.isPresent())
             contactService.addContact(addContactRequest, contactManagement.get().getId());
@@ -86,6 +86,7 @@ public class ContactManagementServiceImpl implements ContactManagementService {
 
     @Override
     public List<Contact> viewAllContactBelongInCategory(FindAllContactsInACategory findAllContactsInACategory) {
+        appUnlocked(findAllContactsInACategory.getEmail());
         Optional<ContactManagement> contactManagement = findByEmail(findAllContactsInACategory.getEmail());
         if (contactManagement.isPresent())
             return contactService.findAllContactACategory(findAllContactsInACategory.getCategoryName(), findAllContactsInACategory.getEmail(), contactManagement.get().getId());
@@ -103,19 +104,44 @@ public class ContactManagementServiceImpl implements ContactManagementService {
 
     @Override
     public Contact blockContact(BlockContactRequest blockContactRequest) {
+        appUnlocked(blockContactRequest.getEmail());
         Optional<ContactManagement> contactManagement = findByEmail(blockContactRequest.getEmail());
         return contactService.blockContact(blockContactRequest, contactManagement.get().getId());
     }
 
     @Override
     public Contact unblockContact(UnblockContactRequest unblockContactRequest) {
+        appUnlocked(unblockContactRequest.getEmail());
         Optional<ContactManagement> contactManagement = findByEmail(unblockContactRequest.getEmail());
         return contactService.unblockContact(unblockContactRequest, contactManagement.get().getId());
+    }
+
+    @Override
+    public ContactManagement editUserInfo(EditUserInfoRequest editUserInfoRequest) {
+       // appUnlocked(editUserInfoRequest.getFormerEmail());
+       Optional<ContactManagement> contactManagement = findByEmail(editUserInfoRequest.getFormerEmail());
+        if(editUserInfoRequest.getNewFirstname()!= null)contactManagement.get().setFirstName(editUserInfoRequest.getNewFirstname());
+        if(editUserInfoRequest.getNewSurname()!=null)contactManagement.get().setSurname(editUserInfoRequest.getNewSurname());
+        if(editUserInfoRequest.getNewAddress()!=null)contactManagement.get().setAddress(editUserInfoRequest.getNewAddress());
+        if(editUserInfoRequest.getNewEmail()!=null)contactManagement.get().setEmail(editUserInfoRequest.getNewEmail());
+        if(editUserInfoRequest.getNewPhoneNumber()!=null)contactManagement.get().setPhoneNumber(editUserInfoRequest.getNewPhoneNumber());
+        contactManagementRepository.save(contactManagement.get());
+        return contactManagement.get();
+
+    }
+
+    @Override
+    public void deleteAccount(String email) {
+        appUnlocked(email);
+        Optional<ContactManagement> contactManagement = findByEmail(email);
+        contactManagementRepository.delete(contactManagement.get());
+
     }
 
 
     @Override
     public void deleteAContact(DeleteAContactRequest deleteAContactRequest) {
+        appUnlocked(deleteAContactRequest.getUserEmail());
         Optional<ContactManagement> contactManagement = findByEmail(deleteAContactRequest.getUserEmail());
         if (contactManagement.isPresent())
             contactService.deleteAContact(deleteAContactRequest, contactManagement.get().getId());
@@ -125,6 +151,7 @@ public class ContactManagementServiceImpl implements ContactManagementService {
 
     @Override
     public void deleteAllContactBelongInCategory(DeleteAllContactsInACategory deleteAllContactsInACategory) {
+        appUnlocked(deleteAllContactsInACategory.getEmail());
         Optional<ContactManagement> contactManagement = findByEmail(deleteAllContactsInACategory.getEmail());
         if (contactManagement.isPresent())
             contactService.deleteAllContactInCategory(deleteAllContactsInACategory, contactManagement.get().getId());
@@ -134,6 +161,7 @@ public class ContactManagementServiceImpl implements ContactManagementService {
 
     @Override
     public void deleteAllContact(DeleteAllContactRequest deleteAllContactRequest) {
+        appUnlocked(deleteAllContactRequest.getEmail());
         Optional<ContactManagement> contactManagement = findByEmail(deleteAllContactRequest.getEmail());
         contactService.deleteAllContact(contactManagement.get().getId());
 

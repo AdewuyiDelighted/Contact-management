@@ -16,6 +16,7 @@ public class ContactManagement {
     private String firstName;
     private String phoneNumber;
     private String email;
+    private String address;
     private String password;
     private boolean isLocked = true;
 
