@@ -5,7 +5,6 @@ import org.example.data.model.ContactManagement;
 import org.example.data.repositories.ContactManagementRepository;
 import org.example.dtos.request.*;
 import org.example.exceptions.AppUnlockedException;
-import org.example.exceptions.ContactManagementDoesntExitExcepetion;
 import org.example.exceptions.InvalidDetailsException;
 import org.example.exceptions.UserExistException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +28,8 @@ public class ContactManagementServiceImpl implements ContactManagementService {
 
     @Override
     public void register(RegisterRequest registerRequest) {
-        if (userExist(registerRequest.getSurname(), registerRequest.getFirstname()) != null)
-            throw new UserExistException(fullName(registerRequest) + " already exist");
+        if (userExist(registerRequest.getSurname(), registerRequest.getFirstname(), registerRequest.getEmail()) != null)
+            throw new UserExistException(fullName(registerRequest) + " or " + registerRequest.getEmail() + " already exist");
         passwordChecker(registerRequest);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(registerRequest.getPassword());
@@ -52,7 +51,9 @@ public class ContactManagementServiceImpl implements ContactManagementService {
 
     @Override
     public void addContact(AddContactRequest addContactRequest) {
-        appUnlocked(addContactRequest.getUserEmail());validatePhoneNumber(addContactRequest.getPhoneNumber());validateEmail(addContactRequest.getEmail());
+        appUnlocked(addContactRequest.getUserEmail());
+        validatePhoneNumber(addContactRequest.getPhoneNumber());
+        validateEmail(addContactRequest.getEmail());
         Optional<ContactManagement> contactManagement = contactManagementRepository.findByEmail(addContactRequest.getUserEmail());
         if (contactManagement.isPresent())
             contactService.addContact(addContactRequest, contactManagement.get().getId());
@@ -118,16 +119,24 @@ public class ContactManagementServiceImpl implements ContactManagementService {
 
     @Override
     public ContactManagement editUserInfo(EditUserInfoRequest editUserInfoRequest) {
-       // appUnlocked(editUserInfoRequest.getFormerEmail());
-       Optional<ContactManagement> contactManagement = findByEmail(editUserInfoRequest.getFormerEmail());
-        if(editUserInfoRequest.getNewFirstname()!= null)contactManagement.get().setFirstName(editUserInfoRequest.getNewFirstname());
-        if(editUserInfoRequest.getNewSurname()!=null)contactManagement.get().setSurname(editUserInfoRequest.getNewSurname());
-        if(editUserInfoRequest.getNewAddress()!=null)contactManagement.get().setAddress(editUserInfoRequest.getNewAddress());
-        if(editUserInfoRequest.getNewEmail()!=null)contactManagement.get().setEmail(editUserInfoRequest.getNewEmail());
-        if(editUserInfoRequest.getNewPhoneNumber()!=null)contactManagement.get().setPhoneNumber(editUserInfoRequest.getNewPhoneNumber());
-        contactManagementRepository.save(contactManagement.get());
-        return contactManagement.get();
+        appUnlocked(editUserInfoRequest.getFormerEmail());
+        Optional<ContactManagement> contactManagement = findByEmail(editUserInfoRequest.getFormerEmail());
+        if (contactManagement.isPresent()) {
+            if (editUserInfoRequest.getNewFirstname() != null)
+                contactManagement.get().setFirstName(editUserInfoRequest.getNewFirstname());
+            if (editUserInfoRequest.getNewSurname() != null)
+                contactManagement.get().setSurname(editUserInfoRequest.getNewSurname());
+            if (editUserInfoRequest.getNewAddress() != null)
+                contactManagement.get().setAddress(editUserInfoRequest.getNewAddress());
+            if (editUserInfoRequest.getNewEmail() != null)
+                contactManagement.get().setEmail(editUserInfoRequest.getNewEmail());
+            if (editUserInfoRequest.getNewPhoneNumber() != null)
+                contactManagement.get().setPhoneNumber(editUserInfoRequest.getNewPhoneNumber());
+            contactManagementRepository.save(contactManagement.get());
+            return contactManagement.get();
 
+        }
+        return null;
     }
 
     @Override
@@ -176,20 +185,20 @@ public class ContactManagementServiceImpl implements ContactManagementService {
 
     private void appUnlocked(String email) {
         Optional<ContactManagement> contactManagement = contactManagementRepository.findByEmail(email);
-        if (contactManagement.get().isLocked()) throw new AppUnlockedException("App is locked");
+        if (contactManagement.get().isLocked()) throw new AppUnlockedException("User need to login in");
     }
 
     private void validateEmailAndPassword(LoginRequest loginRequest, ContactManagement contactManagement) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         if (!loginRequest.getEmail().equals(contactManagement.getEmail()))
-            throw new InvalidDetailsException("Details incorrect");
+            throw new InvalidDetailsException("Invalid details");
         if (!passwordEncoder.matches(loginRequest.getPassword(), contactManagement.getPassword()))
-            throw new InvalidDetailsException("Details incorrect");
+            throw new InvalidDetailsException("Invalid details");
     }
 
-    private ContactManagement userExist(String surname, String firstname) {
+    private ContactManagement userExist(String surname, String firstname, String email) {
         for (ContactManagement contactManagement : contactManagementRepository.findAll()) {
-            if (contactManagement.getFirstName().equals(firstname) && contactManagement.getSurname().equals(surname))
+            if (contactManagement.getFirstName().equals(firstname) && contactManagement.getSurname().equals(surname) && contactManagement.getEmail().equals(email))
                 return contactManagement;
         }
         return null;

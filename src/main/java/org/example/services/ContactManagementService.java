@@ -40,4 +40,5 @@ public interface ContactManagementService {
     ContactManagement editUserInfo(EditUserInfoRequest editUserInfoRequest);
 
     void deleteAccount(String email);
+
 }

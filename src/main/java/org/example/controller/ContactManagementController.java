@@ -34,7 +34,7 @@ public class ContactManagementController {
         try {
             contactManagementService.login(loginRequest);
             loginResponse.setMessage("Account login");
-            return new ResponseEntity<>(new ApiResponse(true, loginResponse), HttpStatus.OK);
+            return new ResponseEntity<>(new ApiResponse(true, loginResponse), HttpStatus.ACCEPTED);
         } catch (ContactManagementExceptions ex) {
             loginResponse.setMessage(ex.getMessage());
             return new ResponseEntity<>(new ApiResponse(false, loginResponse), HttpStatus.BAD_REQUEST);
@@ -72,7 +72,7 @@ public class ContactManagementController {
         EditContactUserResponse editContactUserResponse = new EditContactUserResponse();
         try {
             contactManagementService.editUserInfo(editUserInfoRequest);
-            editContactUserResponse.setMessage("Contact updated to date");
+            editContactUserResponse.setMessage("Your info updated to date");
             return new ResponseEntity<>(new ApiResponse(true, editContactUserResponse), HttpStatus.OK);
         } catch (ContactManagementExceptions ex) {
             editContactUserResponse.setMessage(ex.getMessage());

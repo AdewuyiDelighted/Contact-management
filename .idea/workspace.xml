@@ -5,30 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a829696-3e14-4258-8c3a-8e94952f9225" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ContactManagementController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/request/EditUserInfoRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/response/AddContactResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/response/ApiResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/response/BlockContactResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/response/DeleteAContactResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/response/DeleteAccountResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/response/DeleteAllContactInCategoryResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/response/DeleteAllContactResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/response/EditContactInfoResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/response/EditContactUserResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/response/FindAContactResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/response/FindAllContactInACategoryResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/response/FindAllContactResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/response/LoginResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/response/RegisterRequestResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/response/UnblockContactResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/exceptions/ContactManagementDoesntExitExcepetion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data/model/ContactManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data/model/ContactManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ContactManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ContactManagementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ContactManagementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ContactManagementService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ContactManagementServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ContactManagementServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ContactServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ContactServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/Verification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/Verification.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/services/ContactManagementServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/services/ContactManagementServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +69,7 @@
       <recent name="org.example.services" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ContactManagementServiceImplTest.testThatUserCanRegisterContactManagementLoginAndUpdateInfo">
+  <component name="RunManager" selected="Spring Boot.Main">
     <configuration name="ContactManagementServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="contact-management" />
       <extension name="coverage">
@@ -166,8 +148,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanRegisterContactManagementLoginAndUpdateInfo" />
         <item itemvalue="Spring Boot.Main" />
+        <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanRegisterContactManagementLoginAndUpdateInfo" />
         <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndBlockAContact" />
         <item itemvalue="JUnit.ContactManagementServiceImplTest" />
         <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanRegisterContactManagementLoginAndDeleteAccount" />
@@ -191,7 +173,13 @@
       <workItem from="1704558480770" duration="36000" />
       <workItem from="1704558569815" duration="52172000" />
       <workItem from="1704712413199" duration="18412000" />
-      <workItem from="1704816571454" duration="47951000" />
+      <workItem from="1704816571454" duration="50114000" />
+      <workItem from="1705084022212" duration="4525000" />
+      <workItem from="1705147540109" duration="2537000" />
+      <workItem from="1705278372515" duration="110000" />
+      <workItem from="1705321273516" duration="928000" />
+      <workItem from="1705339863369" duration="9475000" />
+      <workItem from="1705447476893" duration="2031000" />
     </task>
     <servers />
   </component>
@@ -201,10 +189,14 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/org/example/services/ContactManagementServiceImplTest.java</url>
-          <line>534</line>
-          <option name="timeStamp" value="4" />
+          <line>517</line>
+          <properties class="org.example.services.ContactManagementServiceImplTest" method="testThatUserCanRegisterContactManagementLoginAndUpdateInfo">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
