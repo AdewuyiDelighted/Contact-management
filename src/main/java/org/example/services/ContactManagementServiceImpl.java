@@ -70,9 +70,9 @@ public class ContactManagementServiceImpl implements ContactManagementService {
     }
 
     @Override
-    public List<Contact> viewAllContactBelongToUser(FindAllContactRequest findAllContactRequest) {
-        appUnlocked(findAllContactRequest.getEmail());
-        Optional<ContactManagement> contactManagement = findByEmail(findAllContactRequest.getEmail());
+    public List<Contact> viewAllContactBelongToUser(String email) {
+        appUnlocked(email);
+        Optional<ContactManagement> contactManagement = findByEmail(email);
         if (contactManagement.isPresent())
             return contactService.findAllContactBelongingToUser(contactManagement.get().getId());
         return null;

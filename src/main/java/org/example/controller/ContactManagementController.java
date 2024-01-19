@@ -109,10 +109,10 @@ public class ContactManagementController {
 
 
     @GetMapping("/viewAllContact")
-    public ResponseEntity<ApiResponse> viewAllContact(@RequestBody FindAllContactRequest findAllContactRequest) {
+    public ResponseEntity<ApiResponse> viewAllContact(@RequestParam(name = "email") String email) {
         FindAllContactResponse findAllContactResponse = new FindAllContactResponse();
         try {
-            findAllContactResponse.setContacts(contactManagementService.viewAllContactBelongToUser(findAllContactRequest));
+            findAllContactResponse.setContacts(contactManagementService.viewAllContactBelongToUser(email));
             return new ResponseEntity<>(new ApiResponse(true, findAllContactResponse), HttpStatus.OK);
         } catch (ContactManagementExceptions ex) {
             findAllContactResponse.setMessage(ex.getMessage());

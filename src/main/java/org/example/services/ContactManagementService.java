@@ -19,7 +19,7 @@ public interface ContactManagementService {
 
     Contact editContact(EditContactRequest editContactRequest);
 
-    List<Contact> viewAllContactBelongToUser(FindAllContactRequest findAllContactRequest);
+    List<Contact> viewAllContactBelongToUser(String email);
 
     Contact viewAContact(FindAContactRequest findAContactRequest);
 

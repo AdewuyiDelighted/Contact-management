@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a829696-3e14-4258-8c3a-8e94952f9225" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ContactManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ContactManagementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ContactManagementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ContactManagementService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ContactManagementServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ContactManagementServiceImpl.java" afterDir="false" />
@@ -149,9 +147,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.Main" />
+        <item itemvalue="JUnit.ContactManagementServiceImplTest" />
         <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanRegisterContactManagementLoginAndUpdateInfo" />
         <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndBlockAContact" />
-        <item itemvalue="JUnit.ContactManagementServiceImplTest" />
         <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanRegisterContactManagementLoginAndDeleteAccount" />
       </list>
     </recent_temporary>
@@ -179,26 +177,13 @@
       <workItem from="1705278372515" duration="110000" />
       <workItem from="1705321273516" duration="928000" />
       <workItem from="1705339863369" duration="9475000" />
-      <workItem from="1705447476893" duration="2031000" />
+      <workItem from="1705447476893" duration="11606000" />
+      <workItem from="1705663112619" duration="151000" />
+      <workItem from="1705689344175" duration="522000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/org/example/services/ContactManagementServiceImplTest.java</url>
-          <line>517</line>
-          <properties class="org.example.services.ContactManagementServiceImplTest" method="testThatUserCanRegisterContactManagementLoginAndUpdateInfo">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

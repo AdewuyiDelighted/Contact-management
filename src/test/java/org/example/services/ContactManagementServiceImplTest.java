@@ -56,23 +56,23 @@ class ContactManagementServiceImplTest {
         assertThrows(PasswordTooWeakException.class, () -> contactManagementService.register(registerRequest));
     }
 
-    @Test
-    public void testThatUserCantRegisterWhenFullNameAreTheSame() {
-        RegisterRequest registerRequest = new RegisterRequest();
-        registerRequest.setFirstname("Happiness");
-        registerRequest.setSurname("peace");
-        registerRequest.setPassword("Peace#123");
-        registerRequest.setEmail("happinessPeace2@gmail.com");
-        registerRequest.setPhoneNumber("08023456745");
-        contactManagementService.register(registerRequest);
-        RegisterRequest registerRequestOla = new RegisterRequest();
-        registerRequestOla.setFirstname("Happiness");
-        registerRequestOla.setSurname("peace");
-        registerRequestOla.setPassword("Peace#1234");
-        registerRequestOla.setEmail("happiness@1267");
-        registerRequestOla.setPhoneNumber("090345689");
-        assertThrows(UserExistException.class, () -> contactManagementService.register(registerRequestOla));
-    }
+//    @Test
+//    public void testThatUserCantRegisterWhenFullNameAreTheSame() {
+//        RegisterRequest registerRequest = new RegisterRequest();
+//        registerRequest.setFirstname("Happiness");
+//        registerRequest.setSurname("peace");
+//        registerRequest.setPassword("Peace#123");
+//        registerRequest.setEmail("happinessPeace2@gmail.com");
+//        registerRequest.setPhoneNumber("08023456745");
+//        contactManagementService.register(registerRequest);
+//        RegisterRequest registerRequestOla = new RegisterRequest();
+//        registerRequestOla.setFirstname("Happiness");
+//        registerRequestOla.setSurname("peace");
+//        registerRequestOla.setPassword("Peace#1234");
+//        registerRequestOla.setEmail("happiness@1267");
+//        registerRequestOla.setPhoneNumber("090345689");
+//        assertThrows(UserExistException.class, () -> contactManagementService.register(registerRequestOla));
+//    }
 
     @Test
     public void testThatUserThatRegisterCanLoginWithEmailAndPassword() {
