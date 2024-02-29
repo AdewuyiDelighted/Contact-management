@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a829696-3e14-4258-8c3a-8e94952f9225" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DockerFile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +64,7 @@
       <recent name="org.example.services" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ContactManagementServiceImplTest">
+  <component name="RunManager" selected="Spring Boot.Main">
     <configuration name="ContactManagementServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="contact-management" />
       <extension name="coverage">
@@ -143,8 +143,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ContactManagementServiceImplTest" />
         <item itemvalue="Spring Boot.Main" />
+        <item itemvalue="JUnit.ContactManagementServiceImplTest" />
         <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndViewAContacts" />
         <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanRegisterContactManagementLoginAndUpdateInfo" />
         <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndBlockAContact" />
@@ -181,6 +181,8 @@
       <workItem from="1705856137896" duration="29000" />
       <workItem from="1709091795573" duration="16968000" />
       <workItem from="1709164817933" duration="4005000" />
+      <workItem from="1709205283934" duration="2042000" />
+      <workItem from="1709223705460" duration="2120000" />
     </task>
     <servers />
   </component>
