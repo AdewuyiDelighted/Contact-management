@@ -214,7 +214,7 @@ class ContactManagementServiceImplTest {
         FindAllContactRequest findAllContactRequest = new FindAllContactRequest();
         findAllContactRequest.setEmail("Feyibola@gmail.com");
         assertEquals(1, contactManagementRepository.count());
-        assertEquals(2, contactManagementService.viewAllContactBelongToUser(findAllContactRequest).size());
+        assertEquals(2, contactManagementService.viewAllContactBelongToUser(findAllContactRequest.getEmail()).size());
 
     }
 

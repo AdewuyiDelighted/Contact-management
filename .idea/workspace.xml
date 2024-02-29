@@ -7,8 +7,10 @@
     <list default="true" id="0a829696-3e14-4258-8c3a-8e94952f9225" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ContactManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ContactManagementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ContactManagementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ContactManagementService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ContactManagementServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ContactManagementServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ContactService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ContactService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/ContactServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/ContactServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/Verification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/Verification.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/services/ContactManagementServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/services/ContactManagementServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +101,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContactManagementServiceImplTest.testThatUserCanRegisterContactManagementLoginAndDeleteAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndViewAContacts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="contact-management" />
       <extension name="coverage">
         <pattern>
@@ -109,7 +111,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.services" />
       <option name="MAIN_CLASS_NAME" value="org.example.services.ContactManagementServiceImplTest" />
-      <option name="METHOD_NAME" value="testThatUserCanRegisterContactManagementLoginAndDeleteAccount" />
+      <option name="METHOD_NAME" value="testThatUserCanAddContactAfterThatRegisterAndLoginAndViewAContacts" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -147,10 +149,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.Main" />
+        <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndViewAContacts" />
         <item itemvalue="JUnit.ContactManagementServiceImplTest" />
         <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanRegisterContactManagementLoginAndUpdateInfo" />
         <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanAddContactAfterThatRegisterAndLoginAndBlockAContact" />
-        <item itemvalue="JUnit.ContactManagementServiceImplTest.testThatUserCanRegisterContactManagementLoginAndDeleteAccount" />
       </list>
     </recent_temporary>
   </component>
@@ -180,6 +182,9 @@
       <workItem from="1705447476893" duration="11606000" />
       <workItem from="1705663112619" duration="151000" />
       <workItem from="1705689344175" duration="522000" />
+      <workItem from="1705749947058" duration="619000" />
+      <workItem from="1705856137896" duration="29000" />
+      <workItem from="1709091795573" duration="16968000" />
     </task>
     <servers />
   </component>

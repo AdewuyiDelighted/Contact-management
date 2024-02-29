@@ -45,6 +45,15 @@ public class ContactServiceImpl implements ContactService {
         return null;
     }
 
+    @Override
+    public Contact findAContact(String surname, String firstName, Long contactManagementId) {
+        for (Contact contact : findAllContactBelongingToUser(contactManagementId)) {
+            if (contact.getSurname().equals(surname) && contact.getFirstname().equals(firstName))return contact;
+        }
+        throw new ContactDoesntExistException("Contact doesnt not exist");
+
+    }
+
     private void validateEditContactInfo(EditContactRequest editContactRequest, Long contactManagementId) {
         if (!phoneNumberExist(editContactRequest.getOldContact(), contactManagementId))
             throw new ContactDoesntExistException("Contact doesnt exist");
@@ -52,14 +61,14 @@ public class ContactServiceImpl implements ContactService {
             throw new IncorrectPhoneNumberFormat("Wrong Phone number format");
     }
 
-    @Override
-    public Contact findAContact(String surname, String firstname, Long contactManagementId) {
-        for (Contact contact : findAllContactBelongingToUser(contactManagementId)) {
-            if (contact.getSurname().equals(surname) && contact.getFirstname().equals(firstname))
-                return contact;
-        }
-        throw new ContactDoesntExistException("Contact doesnt not exist");
-    }
+//    @Override
+//    public Contact findAContact(String surname, String firstName, Long contactManagementId) {
+//        for (Contact contact : findAllContactBelongingToUser(contactManagementId)) {
+//            if (contact.getSurname().equals(surname) && contact.getFirstname().equals(firstName))
+//                return contact;
+//        }
+//        throw new ContactDoesntExistException("Contact doesnt not exist");
+//    }
 
 
     @Override
@@ -92,9 +101,9 @@ public class ContactServiceImpl implements ContactService {
                 if (editContactInfoRequest.getAddress() != null)
                     contact.setAddress(editContactInfoRequest.getAddress());
                 if (editContactInfoRequest.getEmail() != null) contact.setEmail(editContactInfoRequest.getEmail());
-
                 contactRepository.save(contact);
                 return contact;
+
             }
         }
         return null;

@@ -82,7 +82,7 @@ public class ContactManagementServiceImpl implements ContactManagementService {
     public Contact viewAContact(FindAContactRequest findAContactRequest) {
         appUnlocked(findAContactRequest.getUserEmail());
         Optional<ContactManagement> contactManagement = findByEmail(findAContactRequest.getUserEmail());
-        return contactService.findAContact(findAContactRequest.getSurname(), findAContactRequest.getFirstName(), contactManagement.get().getId());
+        return contactService.findAContact(findAContactRequest.getSurname(),findAContactRequest.getFirstName(),contactManagement.get().getId());
     }
 
     @Override
@@ -179,7 +179,9 @@ public class ContactManagementServiceImpl implements ContactManagementService {
 
     @Override
     public Optional<ContactManagement> findByEmail(String email) {
-        return contactManagementRepository.findByEmail(email);
+        Optional <ContactManagement>  contactManagement = contactManagementRepository.findByEmail(email);
+        if(contactManagement.isPresent())return contactManagement;
+        else throw new InvalidDetailsException("Invalid Details");
     }
 
 

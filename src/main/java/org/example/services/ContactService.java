@@ -10,7 +10,6 @@ public interface ContactService {
 
     Contact editContact(EditContactRequest editContactRequest, Long contactManagementId);
 
-    Contact findAContact(String surname, String firstname, Long contactManagementId);
 
     List<Contact> findAllContactBelongingToUser(Long contactListId);
 
@@ -25,6 +24,6 @@ public interface ContactService {
     void deleteAllContact(Long contactManagementId);
     Contact blockContact(BlockContactRequest blockContactRequest,Long contactManagementId);
     Contact unblockContact(UnblockContactRequest unblockContactRequest,Long contactManagementId);
-
+    Contact findAContact(String surname, String firstName, Long contactManagementId);
 
 }

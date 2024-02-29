@@ -18,7 +18,7 @@ public class Verification {
 
 
     public static boolean validateEmail(String email) {
-        String regex = "^[a-zA-Z0-9_+&*-]+(?:\\." + "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$";
+        String regex = "^[a-zA-Z 0-9_+&*-]+(?:\\." + "[a-zA-Z 0-9_+&*-]+)*@" + "(?:[a-zA-Z 0-9-]+\\.)+[a-z" + "A-Z]{2,7}$";
         return email.matches(regex);
     }
 

@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import org.example.data.model.Contact;
 import org.example.dtos.request.*;
 import org.example.dtos.response.*;
 import org.example.exceptions.ContactManagementExceptions;
@@ -85,7 +86,8 @@ public class ContactManagementController {
     public ResponseEntity<ApiResponse> viewAContact(@RequestBody FindAContactRequest findAContactRequest) {
         FindAContactResponse findAContactResponse = new FindAContactResponse();
         try {
-            findAContactResponse.setContact(contactManagementService.viewAContact(findAContactRequest));
+            Contact contact = contactManagementService.viewAContact(findAContactRequest);
+            findAContactResponse.setContact(contact);
             return new ResponseEntity<>(new ApiResponse(true, findAContactResponse), HttpStatus.OK);
         } catch (ContactManagementExceptions ex) {
             findAContactResponse.setMessage(ex.getMessage());
