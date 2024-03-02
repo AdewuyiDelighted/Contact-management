@@ -1,0 +1,55 @@
+'@startuml
+interface ContactManagement {
+    -id
+    - firstName: String
+  - surname: String
+  - phoneNumber: String
+  - email: String
+  - address: String
+  - password: String
+  - isLocked: boolean
+
+  + register(String,String,String,String,String,String): void
+  + login(String, String): void
+  + findByEmail(String): ContactManagement
+  + addContact(String*6): void
+  + editContact(String, String, String): Contact
+  + viewAllContactBelongToUser(String): list<Contact>
+  + viewAContact(String, String): Contact
+  + viewAllContactInACategory(String, String): list<Contact>
+  + editContactInfo(String *9): Contact
+  + blockAContact(String, String, String): String
+  + unblockAContact(String, String, String): Contact
+  + editUserInfo(String *10): ContactManagement
+  + deleteAContact(String, String, String): void
+  + deleteAllContactInCategory(String, String): void
+  + deleteAllContact(String): void
+}
+
+interface Contact {
+    - id: long
+  - contactManagementId: long
+  - firstName: String
+  - surname: String
+  - phoneNumber: String
+  - email: String
+  - address: String
+  - password: String
+  - categoryName: String
+  - isBlocked: boolean
+  - userEmail: String
+  + addContact(String,String,String,String,String,String,String): void
+  + editContact(String, String, String): Contact
+  + FindAContact(String, String, long): Contact
+  + findAllContactsBelongingToUser(long): list<Contact>
+  + findAllContactsInACategory(String, String, long): list<Contact>
+  + editContactInfo(String *9): Contact
+  + blockAContact(String, String, String): String
+  + unblockAContact(String, String, String): Contact
+  + deleteAContact(String, String, String): void
+  + deleteAllContactInCategory(String, String): void
+  + deleteAllContact(String): void
+}
+
+ContactManagement --|> Contact
+@enduml
