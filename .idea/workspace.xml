@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a829696-3e14-4258-8c3a-8e94952f9225" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Example.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/ClassDiagram.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/contactManagentUml.drawio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Erd.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Erd.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +27,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -68,6 +70,9 @@
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dell\IdeaProjects\contact-management\src\main\resources" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.example.services" />
@@ -195,7 +200,7 @@
       <workItem from="1709280321148" duration="740000" />
       <workItem from="1709281110774" duration="3265000" />
       <workItem from="1709299660327" duration="158000" />
-      <workItem from="1709387566095" duration="3648000" />
+      <workItem from="1709387566095" duration="11153000" />
     </task>
     <servers />
   </component>

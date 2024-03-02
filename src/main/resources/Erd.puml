@@ -29,6 +29,7 @@ ENTITY Contact {
   - userEmail: String
   - PRIMARY_KEY id
 
+
 }
 
 ContactManagement --o{ Contact
