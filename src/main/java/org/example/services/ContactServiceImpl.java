@@ -88,6 +88,7 @@ public class ContactServiceImpl implements ContactService {
             if (contact.getCategoryName().equals(categoryName)) contacts.add(contact);
         }
         return contacts;
+
     }
 
     @Override

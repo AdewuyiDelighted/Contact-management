@@ -5,6 +5,7 @@ import org.example.data.model.ContactManagement;
 import org.example.data.repositories.ContactManagementRepository;
 import org.example.dtos.request.*;
 import org.example.exceptions.AppUnlockedException;
+import org.example.exceptions.ContactDoesntExistException;
 import org.example.exceptions.InvalidDetailsException;
 import org.example.exceptions.UserExistException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -71,27 +73,33 @@ public class ContactManagementServiceImpl implements ContactManagementService {
 
     @Override
     public List<Contact> viewAllContactBelongToUser(String email) {
+        List<Contact> userContacts = new ArrayList<>();
         appUnlocked(email);
         Optional<ContactManagement> contactManagement = findByEmail(email);
-        if (contactManagement.isPresent())
-            return contactService.findAllContactBelongingToUser(contactManagement.get().getId());
-        return null;
+        if (contactManagement.isPresent()) {
+            userContacts = contactService.findAllContactBelongingToUser(contactManagement.get().getId());
+            if (userContacts != null) {
+                return userContacts;
+            } else throw new ContactDoesntExistException("No Contact Added");
+        }
+        throw new InvalidDetailsException("Invalid Details");
     }
 
     @Override
     public Contact viewAContact(FindAContactRequest findAContactRequest) {
         appUnlocked(findAContactRequest.getUserEmail());
         Optional<ContactManagement> contactManagement = findByEmail(findAContactRequest.getUserEmail());
-        return contactService.findAContact(findAContactRequest.getSurname(),findAContactRequest.getFirstName(),contactManagement.get().getId());
+        return contactService.findAContact(findAContactRequest.getSurname(), findAContactRequest.getFirstName(), contactManagement.get().getId());
     }
 
     @Override
     public List<Contact> viewAllContactBelongInCategory(FindAllContactsInACategory findAllContactsInACategory) {
         appUnlocked(findAllContactsInACategory.getEmail());
         Optional<ContactManagement> contactManagement = findByEmail(findAllContactsInACategory.getEmail());
-        if (contactManagement.isPresent())
+        if (contactManagement.isPresent()) {
             return contactService.findAllContactACategory(findAllContactsInACategory.getCategoryName(), findAllContactsInACategory.getEmail(), contactManagement.get().getId());
-        return null;
+        }
+        throw new InvalidDetailsException("Invalid details");
     }
 
     @Override
@@ -99,7 +107,6 @@ public class ContactManagementServiceImpl implements ContactManagementService {
         Optional<ContactManagement> contactManagement = findByEmail(editContactInfoRequest.getUserEmail());
         if (contactManagement.isPresent())
             return contactService.editContactInfo(editContactInfoRequest, contactManagement.get().getId());
-        System.out.println(contactManagement.get().getId());
         return null;
     }
 
@@ -179,8 +186,8 @@ public class ContactManagementServiceImpl implements ContactManagementService {
 
     @Override
     public Optional<ContactManagement> findByEmail(String email) {
-        Optional <ContactManagement>  contactManagement = contactManagementRepository.findByEmail(email);
-        if(contactManagement.isPresent())return contactManagement;
+        Optional<ContactManagement> contactManagement = contactManagementRepository.findByEmail(email);
+        if (contactManagement.isPresent()) return contactManagement;
         else throw new InvalidDetailsException("Invalid Details");
     }
 

@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a829696-3e14-4258-8c3a-8e94952f9225" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +64,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "configurable.group.editor",
     "spring.configuration.checksum": "1e0d8800fcd4b94317fa21cb1f22769a",
     "vue.rearranger.settings.migration": "true"
   }
@@ -210,7 +211,7 @@
       <workItem from="1709551372006" duration="176000" />
       <workItem from="1709556582793" duration="1324000" />
       <workItem from="1709558991670" duration="252000" />
-      <workItem from="1709721949219" duration="3643000" />
+      <workItem from="1709721949219" duration="4808000" />
     </task>
     <servers />
   </component>
