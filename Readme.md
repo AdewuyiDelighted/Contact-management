@@ -53,7 +53,8 @@ _Required fields are_:
 Method:POST
 Header: Content-Type:application/json
 
-**Response 1**
+##### **Response 1**
+
 `
 stautus code 201 created
 Body
@@ -75,7 +76,8 @@ Body
 "successful": false
 }`
 
-**Response 2**
+##### **Response 2**
+
 `
 stautus code 400 Bad Request
 Body
