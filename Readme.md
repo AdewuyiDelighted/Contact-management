@@ -53,7 +53,7 @@ _Required fields are_:
 Method:POST
 Header: Content-Type:application/json
 
-##### **Response 1**
+### **Response 1**
 
 `
 stautus code 201 created
@@ -65,7 +65,8 @@ Body
 "successful": true
 }`
 
-**Response 2**
+### **Response 2**
+
 `
 stautus code 400 Bad Request
 Body
@@ -76,7 +77,7 @@ Body
 "successful": false
 }`
 
-##### **Response 2**
+### **Response **
 
 `
 stautus code 400 Bad Request
@@ -95,7 +96,8 @@ It accepts user email and password,it compares the given details with the data s
 Method:POST
 Header: Content-Type:application/json
 
-**Response 1**
+### **Response 1**
+
 `stautus code 202 accepted 
 Body
 "data": {
@@ -103,7 +105,7 @@ Body
 },
 "successful": true`
 
-**Response 2**
+### **Response 2**
 `
 stautus code 400 Bad Request
 Body
@@ -130,7 +132,7 @@ Method:POST
 Header: Content-Type:application/json
 
 
-**Response 1**
+### **Response 1**
 `stautus code 200 ok
 Body
 "data": {
@@ -138,7 +140,7 @@ Body
 },
 "successful": true`
 
-**Response 2**
+### **Response 2**
 `
 stautus code 400 Bad Request
 Body
@@ -164,7 +166,7 @@ Header: Content-Type:application/json
 * categoryName
 * address
 
-**Response 1**
+### **Response 1**
 `stautus code 200 ok
 Body
 "data": {
@@ -172,7 +174,7 @@ Body
 },
 "successful": true`
 
-**Response 2**
+### **Response 2**
 `
 stautus code 400 Bad Request
 Body
@@ -200,7 +202,7 @@ Header: Content-Type:application/json
 * formerAddress
 * newAddress
 
-**Response 1**
+### **Response 1**
 `{
 stautus code 200 ok
 Body
@@ -210,7 +212,7 @@ Body
 "successful": true
 }`
 
-**Response 2**
+### **Response 2**
 `{
 stautus code  400 Bad Request
 Body
@@ -229,7 +231,7 @@ Required field:
 * UserEmail
 * Surname
 * FirstName
-**Response 1**
+### **Response 1**
 
 ` 
 status code 200 ok
@@ -250,7 +252,7 @@ status code 200 ok
 },
 "successful": true`
 
-**Response 2**
+### **Response 2**
 `
 status code 400 Bad request
 body
@@ -272,7 +274,7 @@ Required field
 
 
 
-## **Response 1**
+### **Response 1**
 
   
 `
@@ -310,7 +312,7 @@ body
   },
   "successful": true
 `
-## **Response 2**
+### **Response 2**
 
 `
 status code 400 Bad request
@@ -321,7 +323,7 @@ body
 },
 "successful": false
 `
-## **Response 3**
+### **Response 3**
 
 `
 status code 400 Bad request
@@ -341,7 +343,7 @@ Header: Content-Type:application/json
 
 Required field
 * Email 
-**Response 2**
+### **Response 1**
 
 `
   status code 200 ok
@@ -379,7 +381,7 @@ Required field
   "successful": true
   }
 `
- **Response**
+### **Response 2**
 
 `
 status code 200 Bad Request
@@ -403,7 +405,7 @@ Required field
 * Firstname
 * Email
 
-**Response 1**
+### **Response 1**
 `
 status code 200 ok
 body
@@ -412,7 +414,7 @@ body
 },
 "successful": true
 `
-**Response 2**
+### **Response 2**
 `
 status code 400 Bad request
 body
@@ -433,7 +435,7 @@ Required field
 * Firstname
 * Email
 
-**Response 1**
+### **Response 1**
 `
 status code 200 ok
 body
@@ -442,7 +444,7 @@ body
 },
 "successful": true
 `
-**Response 2**
+### **Response 2**
 `
 status code 400 Bad request
 body
@@ -462,7 +464,7 @@ Required field
 * UserEmail
 * Surname
 * FirstName
-  **Response 1**
+  ### **Response 1**
   `
   status code 200 ok
   body
@@ -471,7 +473,7 @@ Required field
   },
   "successful": true
   `
-  **Response 2**
+  ### **Response 2**
   `
   status code 400 Bad request
   body
@@ -490,6 +492,7 @@ Required field
 * UserEmail
 * categoryName
 `
+### **Response 1**
 status code 200 ok
 body
 {
@@ -499,7 +502,7 @@ body
 "successful": true
 }
 `
-**Response 2**
+### **Response 2**
 `
 status code 400 Bad request
 body
@@ -517,6 +520,7 @@ Header: Content-Type:application/json
 
 Required field
 * email
+### **Response 1**
 `
   status code 200 ok
   body
@@ -527,7 +531,7 @@ Required field
   "successful": true
   }
   `
-  **Response 2**
+### **Response 2**
   `
   status code 400 Bad request
   body
