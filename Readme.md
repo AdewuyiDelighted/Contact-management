@@ -290,6 +290,7 @@ body
   "userEmail": "JudithJoseph@gmail.com",
   "blocked": false
   },
+``
   {
   "contactId": 2,
   "contactManagementId": 1,
@@ -357,7 +358,8 @@ Required field
   "userEmail": "JudithJoseph@gmail.com",
   "blocked": false
   },
-  {
+  ``
+{
   "contactId": 2,
   "contactManagementId": 1,
   "surname": "Fina",
